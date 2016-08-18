@@ -2,9 +2,6 @@ var app = app || {};
 var hasJqueryObject = function( $elem ){ return $elem.length > 0 };
 
 app.setDataList = function(){
-    app.$contents = app.$body.find("#contents");
-    app.contentsWidth = app.$contents.width();
-    app.$viewWrap = app.$contents.find(".viewWrap");
     $.getJSON( "https://yoyo-mabyung.c9users.io/postManager/humor", function( data ){
         app.data = data;
         var listHtml = "";
@@ -23,13 +20,11 @@ app.setDataList = function(){
         }
         listHtml += "</ul>";
         app.$viewWrap.html(listHtml);
-        app.initPositionList();
-        app.$viewWrap.find(">ul>li>a").on("click", app.handleDetailViewClick);
-        app.$body.on("click", ".btnClose, .dim", app.handlePopCloseClick);
+        app.handlePositionList();
     });
 };
 
-app.initPositionList = function(){
+app.handlePositionList = function(){
     app.$viewList = app.$viewWrap.find(">ul>li");
     app.viewListWidth = app.$viewList.width();
     app.viewListHeight = app.$viewList.height();
@@ -77,9 +72,19 @@ app.handlePopCloseClick = function(){
     app.$dim.remove();
 };
 
+app.initGebsikler = function(){
+    app.$contents = app.$body.find("#contents");
+    app.contentsWidth = app.$contents.width();
+    app.$viewWrap = app.$contents.find(".viewWrap");
+
+    app.setDataList();
+    app.$viewWrap.on("click", ">ul>li>a", app.handleDetailViewClick);
+    app.$body.on("click", ".btnClose, .dim", app.handlePopCloseClick);
+};
+
 $(function(){
     app.$body = $("body");
-    if(hasJqueryObject(app.$body.find(".viewWrap"))) app.setDataList();
+    if(hasJqueryObject(app.$body)) app.initGebsikler();
 });
 
 $(window).on("resize", function(){
