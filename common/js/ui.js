@@ -2,7 +2,7 @@ var app = app || {};
 var hasJqueryObject = function( $elem ){ return $elem.length > 0 };
 
 app.setDataList = function(){
-    $.getJSON( "https://yoyo-mabyung.c9users.io/postManager/humor", function( data ){
+    $.getJSON( "https://yoyo-mabyung.c9users.io/postManager/humer", function( data ){
         app.data = data;
         var listHtml = "";
         listHtml += "<ul>";
@@ -71,6 +71,7 @@ app.handlePopCloseClick = function(){
     app.$popWrap.remove();
     app.$dim.remove();
 };
+
 
 app.initGebsikler = function(){
     app.$contents = app.$body.find("#contents");
