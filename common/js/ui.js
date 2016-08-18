@@ -2,7 +2,7 @@ var app = app || {};
 var hasJqueryObject = function( $elem ){ return $elem.length > 0 };
 
 app.setDataList = function(){
-    $.getJSON( "http://yoyo-mabyung.c9users.io/postManager/humor", function( data ){
+    $.getJSON( "https://yoyo-mabyung.c9users.io/postManager/humor", function( data ){
         app.data = data;
         console.log(app.data);
         var listHtml = "";
