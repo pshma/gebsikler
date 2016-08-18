@@ -1,0 +1,79 @@
+@charset "utf-8";
+
+/* Reset */
+body,div,form,p,h1,h2,h3,h4,h5,h6,dl,dt,dd,ul,ol,li,em,p,span,textarea,pre,label,fieldset,th,td,button,a,input,select,hr{margin:0;padding:0;font-family:ng, dotum, Arial;font-size:14px;}
+body{background:#f3f4f5;line-height:1;-webkit-text-size-adjust:none;}
+em,address{font-style:normal;}
+ol,ul,dl{list-style:none;}
+fieldset,img,hr,button{border:0;}
+img{vertical-align:top;}
+table{border-collapse:collapse;border-spacing:0;}
+legend,caption{overflow:hidden;width:0;height:0;padding:0;font-size:0;line-height:0;}
+a{color:#2c2c2c;text-decoration:none;}
+a:hover{text-decoration:none;}
+button{overflow:visible;margin:0;padding:0;background:none;border-radius:0;cursor:pointer;outline:none;}
+.blind{position:absolute;top:0;left:0;overflow:hidden;width:0;height:0;font-size:0;line-height:0;}
+.clfix:after{content:"";display:block;clear:both;visibility:hidden;height:0;}
+#skipNav{position:absolute;top:0;left:0;width:100%;}
+#skipNav a{display:block;position:absolute;top:-10000px;left:0;z-index: 500;width:100%;font-size:1em;text-align:center;}
+#skipNav a:hover, #skipNav a:focus, #skipNav a:active{position:absolute;top:0;left:0;z-index:500;padding:5px 0;background:#1d60a7;font-weight:bold;color:#fff;}
+
+/* Nanum Gothic */
+@font-face {
+    font-family:'ng';
+    src:url('../font/ng.eot');
+    src:local(※),
+    url('../font/ng.eot?#iefix') format('embedded-opentype'),
+    url('../font/ng.woff') format('woff'),
+    url('../font/ng.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal
+}
+
+/* Nanum Gothic Bold */
+@font-face {
+    font-family:'ng_b';
+    src:url('../font/ng_b.eot');
+    src:local(※),
+    url('../font/ng_b.eot?#iefix') format('embedded-opentype'),
+    url('../font/ng_b.woff') format('woff'),
+    url('../font/ng_b.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal
+}
+
+/* Nanum Gothic ExtraBold */
+@font-face {
+    font-family:'ng_eb';
+    src:url('../font/ng_eb.eot');
+    src:local(※),
+    url('../font/ng_eb.eot?#iefix') format('embedded-opentype'),
+    url('../font/ng_eb.woff') format('woff'),
+    url('../font/ng_eb.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal
+}
+
+/* Layout */
+#header {position:fixed; top:0; left:0; z-index:10; width:100%; border-top:2px solid #ff0000; border-bottom:1px solid #ccc; background:#fff; box-shadow:0 0 10px rgba(205, 205, 205, .5);}
+#header .inner {width:1000px; height:77px; margin:0 auto;}
+#header .inner:after {content:""; display:block; clear:both;}
+#container {width:100%; padding:140px 0;}
+#contents {position:relative; width:1000px; margin:0 auto;}
+#footer {}
+
+/* Header */
+.logo {float:left; margin-top:20px;}
+.logo a {font-family:ng_b; font-weight:normal; font-size:32px;}
+#gnb {float:left; margin:30px 0 0 90px;}
+#gnb ul:after {content:""; display:block; clear:both;}
+#gnb ul li {float:left; margin-left:50px;}
+#gnb ul li:first-child {margin-left:0;}
+#gnb ul li a {display:block; font-family:ng_b; font-size:18px;}
+#gnb ul li a:hover,
+#gnb ul li a:focus,
+#gnb ul li.current a {color:#ff0000;}
+
+
+/* Footer */
+

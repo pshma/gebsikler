@@ -1,0 +1,18 @@
+@charset "utf-8";
+
+/* View Wrap */
+.viewWrap {}
+.viewWrap ul {}
+.viewWrap ul:after {content:""; display:block; clear:both;}
+.viewWrap ul li {position:absolute; top:0; left:0;}
+.viewWrap ul li a {display:block; overflow:hidden; width:320px; border-radius:10px; background:#fff; box-shadow:5px 5px 5px #e8e8e8;}
+.viewWrap ul li a .imgWrap {overflow:hidden; width:320px; height:250px;}
+.viewWrap ul li a .imgWrap img {width:100%;}
+.viewWrap ul li a .txtWrap {padding:15px; border-top:1px solid #eee;}
+.viewWrap ul li a .txtWrap .tit {overflow:hidden; height:34px; font-family:ng_b; font-size:15px; line-height:17px;}
+
+/* .detailView */
+.detailView {position:relative; width:100%; padding:40px; border-radius:10px; background:#fff; box-shadow:5px 5px 5px #e8e8e8;}
+.detailView .tit {font-family:ng_b; font-weight:normal; font-size:25px;}
+.detailView .conWrap {margin-top:50px;}
+.detailView .conWrap p {margin-top:20px;}
