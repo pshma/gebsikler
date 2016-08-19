@@ -94,6 +94,9 @@ app.handleDetailViewClick = function(){
     for(var i =0; i < app.data[key].imgList.split("///").length; i++){
         popHtml += "<p><img src="+ app.data[key].imgList.split("///")[i] +" alt='' /></p>";
     }
+    if(key === 2){
+        popHtml += "<p><iframe width='560' height='315' src='https://www.youtube.com/embed/"+ app.data[key].videoID +"' frameborder='0' allowfullscreen></iframe></p>";
+    }
     popHtml += "</div>";
     popHtml += "<button type='button' class='btnClose'>Close</button>";
     popHtml += "</div>";
