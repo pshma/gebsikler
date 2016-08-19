@@ -104,8 +104,8 @@ app.handleDetailViewClick = function(){
     app.$body.append(popHtml);
     app.$popWrap = app.$body.find(".popWrap");
     app.$dim = app.$body.find(".dim");
-    app.$popWrap.hide();
-    app.$popWrap.show();
+    app.$popWrap.css({ "visibility" : "hidden" });
+    app.$dim.hide();
     setTimeout(app.handlePopAlign, 1000);
     return false;
 };
@@ -115,7 +115,8 @@ app.handlePopAlign = function(){
     var winH = $(window).height();
     var popW = app.$popWrap.width();
     var popH = app.$popWrap.height();
-    app.$popWrap.css({ "top" : parseInt((winH - popH) *.5), "left" : parseInt((winW - popW) *.5) });
+    app.$popWrap.css({ "visibility" : "visible", "top" : parseInt((winH - popH) *.5), "left" : parseInt((winW - popW) *.5) });
+    app.$dim.show();
 };
 
 app.handlePopCloseClick = function(){
