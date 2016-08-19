@@ -42,6 +42,7 @@ app.handleGnbClick = function(){
             });
             break;
     }
+    return false;
 };
 
 app.initHtmlList = function(data){
