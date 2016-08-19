@@ -87,25 +87,17 @@ app.handlePositionList = function(){
 
 app.handleDetailViewClick = function(){
     var key = $(this).parents("li").attr("data-key");
-    var popHtml = "";
-    popHtml += "<div class='popWrap'>";
-    popHtml += "<h2 class='tit'>"+ app.data[key].title +"</h2>";
-    popHtml += "<div class='conWrap'>";
+    app.$popWrap = app.$body.find(".popWrap");
+    app.$popTit = app.$popWrap.find(".tit");
+    app.$popConWrap = app.$popWrap.find(".conWrap");
+    app.$dim = app.$body.find(".dim");
+    app.$popTit.html(app.data[key].title);
     for(var i =0; i < app.data[key].imgList.split("///").length; i++){
-        popHtml += "<p><img src="+ app.data[key].imgList.split("///")[i] +" alt='' /></p>";
+        app.$popConWrap.append("<p><img src="+ app.data[key].imgList.split("///")[i] +" src='' /></p>");
     }
     if(key === 2){
-        popHtml += "<p><iframe width='560' height='315' src='https://www.youtube.com/embed/"+ app.data[key].videoID +"' frameborder='0' allowfullscreen></iframe></p>";
+        app.$popConWrap.html("<p><iframe width='560' height='315' src='https://www.youtube.com/embed/"+ app.data[key].videoID +"' frameborder='0' allowfullscreen></iframe></p>");
     }
-    popHtml += "</div>";
-    popHtml += "<button type='button' class='btnClose'>Close</button>";
-    popHtml += "</div>";
-    popHtml += "<div class='dim'></div>";
-    app.$body.append(popHtml);
-    app.$popWrap = app.$body.find(".popWrap");
-    app.$dim = app.$body.find(".dim");
-    app.$popWrap.css({ "visibility" : "hidden" });
-    app.$dim.hide();
     setTimeout(app.handlePopAlign, 1000);
     return false;
 };
@@ -120,8 +112,10 @@ app.handlePopAlign = function(){
 };
 
 app.handlePopCloseClick = function(){
-    app.$popWrap.remove();
-    app.$dim.remove();
+    app.$popWrap.css({ "visibility" : "hidden" });
+    app.$dim.hide();
+    app.$popTit.contents().remove();
+    app.$popConWrap.contents().remove();
 };
 
 app.initGebsiklerEvent = function(){
