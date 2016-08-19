@@ -4,6 +4,7 @@ var hasJqueryObject = function( $elem ){ return $elem.length > 0 };
 app.setDataList = function(){
     $.getJSON( "https://yoyo-mabyung.c9users.io/postManager/humor", function( data ){
         console.log("humor");
+        console.log(data);
         app.initHtmlList(data);
     });
 };
@@ -58,6 +59,7 @@ app.initHtmlList = function(data){
         listHtml += "</div>";
         listHtml += "<div class='txtWrap'>";
         listHtml += "<p class='tit'>"+ app.data[i].title +"</p>";
+        listHtml += "<p class='date'>"+ app.data[i].date +"</p>";
         listHtml += "</div>";
         listHtml += "</a>";
         listHtml += "</li>";
