@@ -104,7 +104,11 @@ app.handleDetailViewClick = function(){
             app.$popConWrap.append("<p><img src="+ app.data[key].imgList.split("///")[i] +" src='' /></p>");
         }
     }
-    setTimeout(app.handlePopAlign, 1000);
+    setTimeout(function(){
+        app.$popWrap.css({ "visibility" : "visible" } );
+        app.$dim.show();
+        app.handlePopAlign();
+    }, 1000);
     return false;
 };
 
@@ -113,8 +117,7 @@ app.handlePopAlign = function(){
     var winH = $(window).height();
     var popW = app.$popWrap.width();
     var popH = app.$popWrap.height();
-    app.$popWrap.css({ "visibility" : "visible", "top" : parseInt((winH - popH) *.5), "left" : parseInt((winW - popW) *.5) });
-    app.$dim.show();
+    app.$popWrap.css({"top" : parseInt((winH - popH) *.5), "left" : parseInt((winW - popW) *.5) });
 };
 
 app.handlePopCloseClick = function(){
