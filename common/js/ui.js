@@ -3,27 +3,68 @@ var hasJqueryObject = function( $elem ){ return $elem.length > 0 };
 
 app.setDataList = function(){
     $.getJSON( "https://yoyo-mabyung.c9users.io/postManager/humor", function( data ){
-        app.data = data;
-        app.dataLength = app.data.length;
-        var listHtml = "";
-        listHtml += "<ul>";
-        for(var i = (app.dataLength-1); i >= 0; i--){
-            listHtml += "<li data-key="+ i +">";
-            listHtml += "<a href='#'>";
-            listHtml += "<div class='imgWrap'>";
-            listHtml += "<img src="+ app.data[i].thumb +" alt='' />";
-            listHtml += "</div>";
-            listHtml += "<div class='txtWrap'>";
-            listHtml += "<p class='tit'>"+ app.data[i].title +"</p>";
-            listHtml += "</div>";
-            listHtml += "</a>";
-            listHtml += "</li>";
-        }
-        listHtml += "</ul>";
-        app.$viewWrap.html(listHtml);
-        app.handlePositionList();
-        console.log("Complete");
+        console.log("humor");
+        app.initHtmlList(data);
     });
+};
+
+app.handleGnbClick = function(){
+    var key = $(this).data("key");
+    app.$gnbBtn.parents("li").removeClass("current");
+    $(this).parents("li").addClass("current");
+    $(".viewWrap").find("ul").remove();
+    switch(key){
+        case 0 :
+            $.getJSON( "https://yoyo-mabyung.c9users.io/postManager/humor", function( data ){
+                console.log("humor");
+                app.initHtmlList(data);
+            });
+            break;
+
+        case 1 :
+            $.getJSON( "https://yoyo-mabyung.c9users.io/postManager/girls", function( data ){
+                console.log("girls");
+                app.initHtmlList(data);
+            });
+            break;
+
+        case 2 :
+            $.getJSON( "https://yoyo-mabyung.c9users.io/postManager/cam", function( data ){
+                console.log("cam");
+                app.initHtmlList(data);
+            });
+            break;
+
+        case 3 :
+            $.getJSON( "https://yoyo-mabyung.c9users.io/postManager/animal", function( data ){
+                console.log("animal");
+                app.initHtmlList(data);
+            });
+            break;
+    }
+};
+
+app.initHtmlList = function(data){
+    app.data = data;
+    app.dataLength = app.data.length;
+    var listHtml = "";
+    listHtml += "<ul>";
+    for(var i = (app.dataLength-1); i >= 0; i--){
+        listHtml += "<li data-key="+ i +">";
+        listHtml += "<a href='#'>";
+        listHtml += "<div class='imgWrap'>";
+        listHtml += "<img src="+ app.data[i].thumb +" alt='' />";
+        listHtml += "</div>";
+        listHtml += "<div class='txtWrap'>";
+        listHtml += "<p class='tit'>"+ app.data[i].title +"</p>";
+        listHtml += "</div>";
+        listHtml += "</a>";
+        listHtml += "</li>";
+    }
+    listHtml += "</ul>";
+    app.$viewWrap.html(listHtml);
+    app.handlePositionList();
+    console.log("Complete");
 };
 
 app.handlePositionList = function(){
@@ -74,20 +115,22 @@ app.handlePopCloseClick = function(){
     app.$dim.remove();
 };
 
-
-app.initGebsikler = function(){
-    app.$contents = app.$body.find("#contents");
-    app.contentsWidth = app.$contents.width();
-    app.$viewWrap = app.$contents.find(".viewWrap");
-
+app.initGebsiklerEvent = function(){
     app.setDataList();
+    app.$gnbBtn.on("click", app.handleGnbClick);
     app.$viewWrap.on("click", ">ul>li>a", app.handleDetailViewClick);
     app.$body.on("click", ".btnClose, .dim", app.handlePopCloseClick);
 };
 
 $(function(){
     app.$body = $("body");
-    if(hasJqueryObject(app.$body)) app.initGebsikler();
+    app.$contents = app.$body.find("#contents");
+    app.contentsWidth = app.$contents.width();
+    app.$viewWrap = app.$contents.find(".viewWrap");
+    app.$gnb = app.$body.find("#gnb");
+    app.$gnbBtn = app.$gnb.find(">ul>li>a");
+    app.$gnbBtn.each(function(idx){$(this).data("key", idx)});
+    if(hasJqueryObject(app.$body)) app.initGebsiklerEvent();
 });
 
 $(window).on("resize", function(){
