@@ -4,10 +4,11 @@ var hasJqueryObject = function( $elem ){ return $elem.length > 0 };
 app.setDataList = function(){
     $.getJSON( "https://yoyo-mabyung.c9users.io/postManager/humor", function( data ){
         app.data = data;
+        app.dataLength = app.data.length;
         console.log(app.data);
         var listHtml = "";
         listHtml += "<ul>";
-        for(var i = 0; i < app.data.length; i++){
+        for(var i = (app.dataLength-1); i >= 0; i--){
             listHtml += "<li data-key="+ i +">";
             listHtml += "<a href='#'>";
             listHtml += "<div class='imgWrap'>";
