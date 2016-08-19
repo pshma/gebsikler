@@ -12,7 +12,7 @@
 .viewWrap ul li a .txtWrap .tit {overflow:hidden; height:34px; font-family:ng_b; font-size:15px; line-height:17px;}
 
 /* Popup */
-.popWrap {position:fixed; top:0; left:0; z-index:30; overflow:hidden; width:1100px; height:700px; padding:20px; border-radius:10px; background:#fff; box-shadow:5px 5px 5px rgba(97, 97, 97, .5);}
+.popWrap {position:fixed; top:0; left:0; z-index:30; overflow:hidden; width:1100px; height:800px; padding:20px; border-radius:10px; background:#fff; box-shadow:5px 5px 5px rgba(97, 97, 97, .5);}
 .popWrap .tit {font-family:ng_b; font-weight:normal; font-size:20px;}
 .popWrap .conWrap {overflow-y:auto; height:650px; margin-top:30px;}
 .popWrap .conWrap p {margin-top:10px;}
