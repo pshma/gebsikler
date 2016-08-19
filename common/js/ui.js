@@ -22,7 +22,7 @@ app.setDataList = function(){
         listHtml += "</ul>";
         app.$viewWrap.html(listHtml);
         app.handlePositionList();
-        console.log("¿Ï·á");
+        console.log("Complete");
     });
 };
 
