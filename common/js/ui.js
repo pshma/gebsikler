@@ -104,7 +104,9 @@ app.handleDetailViewClick = function(){
     app.$body.append(popHtml);
     app.$popWrap = app.$body.find(".popWrap");
     app.$dim = app.$body.find(".dim");
-    setTimeout(app.handlePopAlign, 500);
+    app.$popWrap.hide();
+    app.$popWrap.show();
+    setTimeout(app.handlePopAlign, 1000);
     return false;
 };
 
