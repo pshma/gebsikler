@@ -104,7 +104,7 @@ app.handleDetailViewClick = function(){
     app.$body.append(popHtml);
     app.$popWrap = app.$body.find(".popWrap");
     app.$dim = app.$body.find(".dim");
-    setTimeout(app.handlePopAlign, 300);
+    setTimeout(app.handlePopAlign, 500);
     return false;
 };
 
@@ -113,7 +113,6 @@ app.handlePopAlign = function(){
     var winH = $(window).height();
     var popW = app.$popWrap.width();
     var popH = app.$popWrap.height();
-    console.log(popW)
     app.$popWrap.css({ "top" : parseInt((winH - popH) *.5), "left" : parseInt((winW - popW) *.5) });
 };
 
