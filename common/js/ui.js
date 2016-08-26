@@ -53,7 +53,6 @@ app.initHtmlList = function(data, key){
     listHtml += "<ul>";
     for(var i = (app.dataLength-1); i >= 0; i--){
         listHtml += "<li data-key="+ i +">";
-        listHtml += "<div class='inner'>";
         listHtml += "<a href='#'>";
         listHtml += "<div class='imgWrap'>";
         if(key === 2){
@@ -62,15 +61,11 @@ app.initHtmlList = function(data, key){
             listHtml += "<img src="+ app.data[i].thumb +" alt='' />";
         }
         listHtml += "</div>";
-        listHtml += "</a>";
         listHtml += "<div class='txtWrap'>";
         listHtml += "<p class='tit'>"+ app.data[i].title +"</p>";
         listHtml += "<p class='date'>"+ app.data[i].date +"</p>";
-        listHtml += "<div class='btnWrap'>";
-        listHtml += "<button type='button' class='btnGood'>좋아요</button>";
         listHtml += "</div>";
-        listHtml += "</div>";
-        listHtml += "</div>";
+        listHtml += "</a>";
         listHtml += "</li>";
     }
     listHtml += "</ul>";
