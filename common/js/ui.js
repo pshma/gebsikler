@@ -68,7 +68,6 @@ app.initHtmlList = function(data, key){
         listHtml += "<p class='date'>"+ app.data[i].date +"</p>";
         listHtml += "<div class='btnWrap'>";
         listHtml += "<button type='button' class='btnGood'>좋아요</button>";
-        listHtml += "<button type='button' class='btnBookmark'>북마크</button>";
         listHtml += "</div>";
         listHtml += "</div>";
         listHtml += "</div>";
